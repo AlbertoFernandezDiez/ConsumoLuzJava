@@ -40,10 +40,10 @@ public class Constantes {
 
 	// VISTAS
 	public static final String VIEW_LOGIN = "/login.jsp";
-	public static final String VIEW_INDEX = "/pages/index.jsp";
+	public static final String VIEW_INDEX = "pages/index.jsp";
 	public static final String VIEW_SIGN_IN = "/signin.jsp";
 
-	public static final String VIEW_CONSUMPTION_LIST = "pages/consumption.jsp";
+	public static final String VIEW_CONSUMPTION_LIST = "/pages/consumption.jsp";
 	public static final String VIEW_CONSUMPTION_FORM = "pages/consumptionDetail.jsp";
 
 	public static final String ATTRIBUTE_LIST = "consumptionlist";
