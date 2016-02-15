@@ -53,14 +53,11 @@ public interface ConsumptionDaoInterface {
 	 *            {@code float} the quantity consumed
 	 * @param endingDate
 	 *            {@code java.sql.Date} the ending date of the consumption
-	 * @return {@cod boolean}
-	 *         <ul>
-	 *         <li><strong>true</strong> if the Consumption is inserted</li>
-	 *         <li><strong>false</strong> if the Consumption is not inserted
-	 *         </li>
-	 *         </ul>
+	 * @return {@cod int} the id of the new consumption, else -1
+	 * 
 	 */
-	boolean insertConsumption(int userId, float price, float quantity, java.sql.Date endingDate);
+	int insertConsumption(int userId, float price, float quantity,
+			java.sql.Date endingDate);
 
 	/**
 	 * Updates the price of the quantity of a consumption

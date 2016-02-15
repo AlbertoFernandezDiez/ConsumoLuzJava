@@ -1,0 +1,8 @@
+<%@page import="com.alberto.fernandez.diez.webapp.Constantes"%>
+<%@include file="../include/head.jsp"%>
+
+<%@include file="../include/nav.jsp" %>
+
+
+
+<%@include file="../include/footer.jsp"%>

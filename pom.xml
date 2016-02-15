@@ -44,5 +44,6 @@
 	</build>
 	<modules>
 		<module>DataModel</module>
+		<module>WebApp</module>
 	</modules>
 </project>
