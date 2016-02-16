@@ -11,7 +11,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="<%=Constantes.VIEW_LOGIN %>" >Login</a></li>
+        <li><a href="login.jsp" >Login</a></li>
       </ul>
     </div>
   </div>

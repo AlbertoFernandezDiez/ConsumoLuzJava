@@ -13,7 +13,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li><a href="<%=Constantes.VIEW_SIGN_IN%>">Registro</a></li>
+						<li><a href="signin.jsp">Registro</a></li>
 					</ul>
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 
 
 
-
+<%@include file="/include/mensaje.jsp"%>
 		<form class="form well" action="<%=Constantes.CONTROLLER_LOGIN%>" method="POST">
 			<h3>Inicia sesión:</h3>
 			<fieldset>

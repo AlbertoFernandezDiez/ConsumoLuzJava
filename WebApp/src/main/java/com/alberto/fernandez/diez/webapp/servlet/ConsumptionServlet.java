@@ -1,6 +1,12 @@
 package com.alberto.fernandez.diez.webapp.servlet;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.alberto.fernandez.consumo.luz.pojo.Consumption;
+import com.alberto.fernandez.consumo.luz.pojo.Mensaje;
 import com.alberto.fernandez.consumo.luz.pojo.User;
 import com.alberto.fernandez.diez.webapp.Constantes;
 import com.alberto.fernandez.diez.webapp.servlet.master.MasterServlet;
@@ -86,7 +93,42 @@ public class ConsumptionServlet extends MasterServlet {
 	}
 
 	private void modificarCrear(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		// op=0&quantity=0&price=0&endingdate=sadf
+		String paramQuantity = null;
+		String paramPrice = null;
+		String paramDate = null;
+		
+		paramQuantity = request.getParameter("quantity");
+		paramPrice = request.getParameter("price");
+		paramDate = request.getParameter("endingdate");
+		
+		
+		
+		if (paramQuantity == null || paramPrice == null || paramDate == null){
+			msj = new Mensaje("No se ha podido almacenar el registro", Mensaje.TIPO_WARNING);
+		}else{
+			try{
+				float quantity = Float.parseFloat(paramQuantity);
+				float price = Float.parseFloat(paramPrice);
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				java.sql.Date date = new Date(sdf.parse(paramDate).getTime()); // Date.valueOf(paramDate);//(Date) DateFormat.getInstance().parse(paramDate);
+				
+				int idU = user.getId();
+				
+				if (daoC.insertConsumption(idU, price, quantity, date) == -1){
+					msj = new Mensaje("No se ha podido almacenar el registro", Mensaje.TIPO_WARNING);
+				}else{
+					msj = new Mensaje("Se ha almacenado el registro", Mensaje.TIPO_SUCCESS);
+				}
+				
+				
+			}catch(Exception e){
+				msj = new Mensaje("No se ha podido almacenar el registro", Mensaje.TIPO_WARNING);
+			}
+		}
+		
+		request.setAttribute(Constantes.SESSION_MESSAGE, msj);
+		dispatch = request.getRequestDispatcher(Constantes.VIEW_CONSUMPTION_LIST);
 
 	}
 
@@ -111,6 +153,7 @@ public class ConsumptionServlet extends MasterServlet {
 	private void nuevo(HttpServletRequest request) {
 		Consumption c = new Consumption();
 		request.setAttribute(Constantes.SESSION_CONSUMPTION, c);
+		request.setAttribute(Constantes.ATTRIBUTE_OPERATION, Constantes.OP_MODIFICAR);
 		dispatch = request.getRequestDispatcher(Constantes.VIEW_CONSUMPTION_FORM);
 
 	}
@@ -135,7 +178,7 @@ public class ConsumptionServlet extends MasterServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+doGet(request, response);
 	}
 
 }

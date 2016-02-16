@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.alberto.fernandez.consumo.luz.dao.impl.UserDao;
+import com.alberto.fernandez.consumo.luz.pojo.Mensaje;
 import com.alberto.fernandez.consumo.luz.pojo.User;
 import com.alberto.fernandez.diez.webapp.Constantes;
 import com.alberto.fernandez.diez.webapp.listener.InitListener;
@@ -62,17 +63,26 @@ public class LoginServlet extends MasterServlet {
 					
 				}else{
 					LOG.info("Intento de loggin con los datos:\t" + userName + "\t" + password);
+					msj = new Mensaje("Los datos no son correctos, intentalo de nuevo",Mensaje.TIPO_WARNING);
+					
+					request.setAttribute(Constantes.SESSION_MESSAGE, msj);
 					dispatch = request
 							.getRequestDispatcher(Constantes.VIEW_LOGIN);
+					
 				}
 				
 			}else{
 				LOG.info("Paremetros de inicio no recibidos");
+				msj = new Mensaje("Los datos no son correctos, intentalo de nuevo",Mensaje.TIPO_WARNING);
+				
+				request.setAttribute(Constantes.SESSION_MESSAGE, msj);
 				request
-				.getRequestDispatcher(Constantes.VIEW_INDEX);
+				.getRequestDispatcher(Constantes.VIEW_LOGIN);
 			}
 		}else{
 			LOG.info("Usuario ya logeado" + session.getAttribute(Constantes.SESSION_USER_LOGGED));
+			dispatch = request
+					.getRequestDispatcher(Constantes.VIEW_INDEX);
 		}
 		dispatch.forward(request, response);
 	}

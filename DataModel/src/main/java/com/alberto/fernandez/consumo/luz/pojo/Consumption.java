@@ -19,7 +19,7 @@ public class Consumption {
 		this.consumptionId = -1;
 		this.price = 0f;
 		this.endingDate = new Date(System.currentTimeMillis());
-		this.year = this.endingDate.getYear();
+		this.year = Calendar.getInstance().get(Calendar.YEAR);
 	}
 
 	public int getUserId() {
@@ -117,9 +117,12 @@ public class Consumption {
 
 	@Override
 	public String toString() {
-		return "Consumption [userId=" + userId + ", consumption=" + consumptionId + ", price=" + price + ", endingData="
-				+ endingDate + ", year=" + year + "]";
+		return "Consumption [userId=" + userId + ", consumptionId="
+				+ consumptionId + ", quantity=" + quantity + ", price=" + price
+				+ ", endingDate=" + endingDate + ", year=" + year + "]";
 	}
+
+	
 	
 	
 	

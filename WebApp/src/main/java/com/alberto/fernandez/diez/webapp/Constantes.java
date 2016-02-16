@@ -44,7 +44,8 @@ public class Constantes {
 	public static final String VIEW_SIGN_IN = "/signin.jsp";
 
 	public static final String VIEW_CONSUMPTION_LIST = "/pages/consumption.jsp";
-	public static final String VIEW_CONSUMPTION_FORM = "pages/consumptionDetail.jsp";
+	public static final String VIEW_CONSUMPTION_FORM = "/pages/consumptionDetail.jsp";
 
 	public static final String ATTRIBUTE_LIST = "consumptionlist";
+	public static final String ATTRIBUTE_OPERATION = "operation";
 }
