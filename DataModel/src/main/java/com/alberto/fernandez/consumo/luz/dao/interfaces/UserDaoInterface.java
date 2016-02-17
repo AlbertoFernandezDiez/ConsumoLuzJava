@@ -43,9 +43,8 @@ public interface UserDaoInterface {
 	/**
 	 * Creates a new user in the database
 	 * 
-	 * @param{@code String} the username of a <code>user</code>
-	 * @param password
-	 *            {@code String} the password of a <code>user</code>
+	 * @param username {@code String} the username of a <code>user</code>
+	 * @param password {@code String} the password of a <code>user</code>
 	 * @return {@code boolean}
 	 *         <ul>
 	 *         <li><strong>true</strong> if the user is created in the database

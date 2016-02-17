@@ -11,6 +11,12 @@
 	<name>WebApp</name>
 	<groupId>com.alberto.fernandez.consumo.luz</groupId>
 
+	<properties>
+		<jersey.version>1.20-SNAPSHOT</jersey.version>
+		<glassfish.version>3.1.1</glassfish.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -35,6 +41,33 @@
 			<groupId>com.alberto.fernandez.consumo.luz</groupId>
 			<artifactId>DataModel</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${jersey.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey-jaxrs</artifactId>
+			<version>1.5.0</version>
 		</dependency>
 	</dependencies>
 </project>

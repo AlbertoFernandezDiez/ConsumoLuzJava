@@ -69,7 +69,7 @@ public interface ConsumptionDaoInterface {
 	 *            quantity unit
 	 * @param quantity
 	 *            {@code float} the new quantity consumed
-	 * @return
+	 * @return {@code boolea}<ul><li><strong>true</strong> If the Consumption is updated</li><li><strong>false</strong> If the Consumption is not updated</li></ul>
 	 */
 	boolean updateConsumption(int consumptionId, float price, float quantity);
 
