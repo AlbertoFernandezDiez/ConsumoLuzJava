@@ -12,7 +12,7 @@
 	<groupId>com.alberto.fernandez.consumo.luz</groupId>
 
 	<properties>
-		<jersey.version>1.20-SNAPSHOT</jersey.version>
+		<jersey.version>1.19</jersey.version>
 		<glassfish.version>3.1.1</glassfish.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

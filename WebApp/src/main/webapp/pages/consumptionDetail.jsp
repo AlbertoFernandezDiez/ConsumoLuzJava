@@ -30,7 +30,7 @@
 				pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
 				value="<fmt:formatDate pattern="dd/MM/yyyy" 
             value="${requestScope.consumption.endingDate}" />"
-				required />
+			<c:if test="${requestScope.consumption.consumptionId > 0}">disabled</c:if>	required />
 		</div>
 
 
