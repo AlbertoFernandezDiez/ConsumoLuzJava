@@ -58,9 +58,24 @@
     <url-pattern>/back/logout</url-pattern>
   </servlet-mapping>
   
+   
    <servlet>
     <servlet-name>jersey-serlvet</servlet-name>
     <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <!--  
+    <init-param>
+      <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+      <param-value>com.ipartek.formacion.ejemplos.perrera.filter.ResponseCorsFilter</param-value>
+    </init-param>
+    -->
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>
+		     	io.swagger.jaxrs.json,
+                io.swagger.jaxrs.listing,
+                com.alberto.fernandez.diez.service.impl
+             </param-value>
+    </init-param>
     <init-param>
       <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
       <param-value>true</param-value>
@@ -72,5 +87,18 @@
     <url-pattern>/service/*</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Jersey2Config</servlet-name>
+    <servlet-class>io.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
+    <init-param>
+      <param-name>api.version</param-name>
+      <param-value>1.0.1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>swagger.api.basepath</param-name>
+      <param-value>/ConsumoLuz/service</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
   
 </web-app>
