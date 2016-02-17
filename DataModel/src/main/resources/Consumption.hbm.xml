@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.alberto.fernandez.consumo.luz.pojo.Consumption" table="consumption">
+	<class name="com.alberto.fernandez.consumo.luz.pojo.Consumption"
+		table="consumption">
 		<id column="consumption_id" name="consumptionId" type="integer">
 			<generator class="identity"></generator>
 		</id>
 		<property name="quantity" column="quantity" type="float" />
 		<property name="price" column="price" type="float" />
-		<property name="endingDate" unique-key="key"  column="ending_date" type="date"></property>
-		<property name="year" column="year" type="integer"></property>
-	
-		<property column="user_id" name="userId" type="integer"></property>
+		<property name="year" column="year"  type="integer"></property>
+
+		<properties name="endingDateUser_idCombination" unique="true">
+			<property name="endingDate" column="ending_date" type="date"></property>
+			<property column="user_id" name="userId" type="integer"></property>
+		</properties>
 
 	</class>
 </hibernate-mapping>

@@ -1,3 +1,4 @@
+<%@page import="com.alberto.fernandez.consumo.luz.pojo.Consumption"%>
 <%@page import="com.alberto.fernandez.diez.webapp.Constantes"%>
 <%@include file="../include/head.jsp"%>
 
@@ -20,15 +21,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
 				<c:forEach items="${requestScope.consumptionlist}" var="item">
-					<td>${item.consumptionId }</td>
-					<td>${item.quantity }</td>
-					<td>${item.price }</td>
-					<td>${item.endingDate }</td>
-					<td>${item.quantity * item.price } &euro;</td>
+					<tr>
+						<td><a
+							href="<%=Constantes.CONTROLLER_CONSUMPTION %>?op=<%=Constantes.OP_DETALLE%>&id=${item.consumptionId }">${item.consumptionId }</a></td>
+						<td>${item.quantity }</td>
+						<td>${item.price }</td>
+						<td>${item.endingDate }</td>
+						<td><fmt:formatNumber value="${item.quantity * item.price }" maxFractionDigits="2" /> &euro;</td>
+					</tr>
 				</c:forEach>
-			</tr>
 		</tbody>
 	</table>
 </div>

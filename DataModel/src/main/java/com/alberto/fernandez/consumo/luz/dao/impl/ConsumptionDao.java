@@ -1,19 +1,21 @@
 package com.alberto.fernandez.consumo.luz.dao.impl;
 
 import java.sql.Date;
-import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.alberto.fernandez.consumo.luz.dao.interfaces.ConsumptionDaoInterface;
 import com.alberto.fernandez.consumo.luz.hibernate.HibernateUtil;
 import com.alberto.fernandez.consumo.luz.pojo.Consumption;
-import com.alberto.fernandez.consumo.luz.pojo.User;
 
 public class ConsumptionDao implements ConsumptionDaoInterface {
 
+	protected static final Logger LOG = Logger.getLogger(ConsumptionDao.class);
+
+	
 	private Session session;
 	private static ConsumptionDao myConsumptionDao = null;
 
@@ -33,7 +35,6 @@ public class ConsumptionDao implements ConsumptionDaoInterface {
 		Consumption result = null;
 
 		session = HibernateUtil.getSession();
-		// session.beginTransaction();
 
 		result = (Consumption) session.get(Consumption.class, id);
 
@@ -53,7 +54,7 @@ public class ConsumptionDao implements ConsumptionDaoInterface {
 		aux = (Consumption) session.get(Consumption.class, id);
 
 		if (aux == null || aux.getConsumptionId() == -1) {
-			System.err.println("Consumption does not exist");
+			LOG.error("Consumption does not exist");
 			session.getTransaction().rollback();
 
 		} else {
@@ -145,6 +146,7 @@ public class ConsumptionDao implements ConsumptionDaoInterface {
 			if (aux2 == null || aux2.getConsumptionId() == -1) {
 				result = false;
 				session.getTransaction().rollback();
+				LOG.error("No existe la consumicion");
 			} else {
 				if (aux2.getPrice() == price && aux2.getQuantity() == quantity) {
 					result = true;

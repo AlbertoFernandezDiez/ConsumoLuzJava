@@ -1,12 +1,16 @@
 package com.alberto.fernandez.consumo.luz.dao.impl;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 import com.alberto.fernandez.consumo.luz.dao.interfaces.UserDaoInterface;
 import com.alberto.fernandez.consumo.luz.hibernate.HibernateUtil;
+import com.alberto.fernandez.consumo.luz.pojo.Consumption;
 import com.alberto.fernandez.consumo.luz.pojo.User;
 
 public class UserDao implements UserDaoInterface {
+
+	protected static final Logger LOG = Logger.getLogger(UserDao.class);
 
 	private Session session;
 	private static UserDao myUserDao = null;
@@ -66,7 +70,8 @@ public class UserDao implements UserDaoInterface {
 
 		session.beginTransaction();
 
-		org.hibernate.Query query = session.createQuery("from User as u where u.name = :name");
+		org.hibernate.Query query = session
+				.createQuery("from User as u where u.name = :name");
 		query.setString("name", username);
 		user = (User) query.uniqueResult();
 
@@ -76,7 +81,7 @@ public class UserDao implements UserDaoInterface {
 			user.setPassword(password);
 
 			session.save(user);
-
+			LOG.info("Usuario creado:\t" + user);
 			if (user.getId() != -1) {
 				result = true;
 			}
@@ -96,7 +101,8 @@ public class UserDao implements UserDaoInterface {
 
 		session.beginTransaction();
 
-		org.hibernate.Query query = session.createQuery("from User as u where u.name = :name");
+		org.hibernate.Query query = session
+				.createQuery("from User as u where u.name = :name");
 		query.setString("name", name);
 		user = (User) query.uniqueResult();
 
@@ -124,7 +130,7 @@ public class UserDao implements UserDaoInterface {
 		user = (User) session.get(User.class, id);
 
 		if (user == null || user.getId() == -1) {
-			System.err.println("User does not exist");
+			LOG.error("User does not exist");
 		} else {
 			session.delete(user);
 			user = null;
