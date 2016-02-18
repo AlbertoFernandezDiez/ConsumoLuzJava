@@ -6,7 +6,6 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -17,9 +16,8 @@ import javax.ws.rs.core.Response;
 
 import com.alberto.fernandez.consumo.luz.dao.impl.UserDao;
 import com.alberto.fernandez.consumo.luz.dao.interfaces.UserDaoInterface;
-import com.alberto.fernandez.consumo.luz.pojo.Consumption;
 import com.alberto.fernandez.consumo.luz.pojo.User;
-import com.alberto.fernandez.diez.service.listener.UserServiceInterface;
+import com.alberto.fernandez.diez.service.interfaces.UserServiceInterface;
 
 @Path("/user")
 @Api(value = "/user")
@@ -71,9 +69,9 @@ public class UserServiceImpl implements UserServiceInterface {
 		Response resp = null;
 		try {
 			if (daoU.checkName(name)){
-				resp = Response.status(451).build();
+				resp =  Response.ok().build();
 			}else{
-				resp = Response.ok().build();
+				resp = Response.status(451).build();
 			}
 
 		} catch (Exception e) {

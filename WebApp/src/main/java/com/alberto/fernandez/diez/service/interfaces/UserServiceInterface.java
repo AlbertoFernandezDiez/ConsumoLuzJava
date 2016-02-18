@@ -1,4 +1,4 @@
-package com.alberto.fernandez.diez.service.listener;
+package com.alberto.fernandez.diez.service.interfaces;
 
 import javax.ws.rs.core.Response;
 

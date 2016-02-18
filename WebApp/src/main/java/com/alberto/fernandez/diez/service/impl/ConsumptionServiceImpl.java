@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 import com.alberto.fernandez.consumo.luz.dao.impl.ConsumptionDao;
 import com.alberto.fernandez.consumo.luz.dao.interfaces.ConsumptionDaoInterface;
 import com.alberto.fernandez.consumo.luz.pojo.Consumption;
-import com.alberto.fernandez.diez.service.listener.ConsumptionServiceInterface;
+import com.alberto.fernandez.diez.service.interfaces.ConsumptionServiceInterface;
 
 @Path("/consumption")
 @Api(value = "/consumption")
@@ -131,7 +131,7 @@ public class ConsumptionServiceImpl implements ConsumptionServiceInterface {
 			@ApiParam(value = "Identificador", required = true) @PathParam("userid") int userId,
 			@ApiParam(value = "Precio", required = true) @PathParam("price") float price,
 			@ApiParam(value = "Cantidad", required = true) @PathParam("quantity") float quantity,
-			@ApiParam(value = "Fecha fin de facturacion", required = true) @PathParam("date") Date endingDate) {
+			@ApiParam(value = "Fecha fin de facturacion, formato yyyy-MM-dd", required = true) @PathParam("date") Date endingDate) {
 		Response resp;
 		try {
 			Consumption c = null;

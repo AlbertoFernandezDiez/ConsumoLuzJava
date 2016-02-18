@@ -15,6 +15,9 @@
 					<ul class="nav navbar-nav">
 						<li><a href="signin.jsp">Registro</a></li>
 					</ul>
+					<ul class="nav navbar-nav">
+						<li><a target="_blank" href="documentacion.jsp">Documentación</a></li>
+					</ul>
 				</div>
 			</div>
 		</nav>
