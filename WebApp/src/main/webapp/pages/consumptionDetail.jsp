@@ -25,12 +25,12 @@
 
 		<div class="form-group">
 			<label for='endingdate'><span><i class="fa fa-calendar"></i></span> Fecha fin facturaci&oacute;n:</label><br>
-			<input type='date' class="form-control" id='endingdate'
+			<input type='text' class="form-control" id='endingdate'
 				name='endingdate' placeholder="dd/MM/yyyy"
 				pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
 				value="<fmt:formatDate pattern="dd/MM/yyyy" 
             value="${requestScope.consumption.endingDate}" />"
-			<c:if test="${requestScope.consumption.consumptionId > 0}">disabled</c:if>	required />
+			<c:if test="${requestScope.consumption.consumptionId > 0}">readonly</c:if>	required />
 		</div>
 
 
