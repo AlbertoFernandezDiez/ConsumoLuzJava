@@ -17,14 +17,14 @@
 				name='quantity' required />
 		</div>
 		<div class="form-group">
-			<label for='price'>Precio(&euro;/Kw):</label><br> <input
+			<label for='price'><span><i class="fa fa-eur"></i></span> Precio(&euro;/Kw):</label><br> <input
 				type='number' min="0" step="0.1"
 				value="${requestScope.consumption.price}" class="form-control"
 				id='price' name='price' required />
 		</div>
 
 		<div class="form-group">
-			<label for='endingdate'>Fecha fin facturaci&oacute;n:</label><br>
+			<label for='endingdate'><span><i class="fa fa-calendar"></i></span> Fecha fin facturaci&oacute;n:</label><br>
 			<input type='date' class="form-control" id='endingdate'
 				name='endingdate' placeholder="dd/MM/yyyy"
 				pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
@@ -40,7 +40,8 @@
 				<c:when test="${requestScope.consumption.consumptionId eq -1}">
 					<button type="submit"
 						class="btn btn-success form-control center-block" value='Añadir'
-						id='enviar'>A&ntilde;adir</button>
+						id='enviar'><span><i
+							class="fa fa-plus"></i></span> A&ntilde;adir</button>
 				</c:when>
 				<c:otherwise>
 					<div class="form-group">
@@ -51,7 +52,7 @@
 					<div class="form-group">
 						<button type="button"
 							class="btn btn-danger form-control center-block" value='eliminar'
-							id='enviar' data-toggle="modal" data-target="#eliminar">Eliminar</button>
+							id='enviar' data-toggle="modal" data-target="#eliminar"><span><i class="fa fa-trash"></i></span> Eliminar</button>
 					</div>
 				</c:otherwise>
 			</c:choose>

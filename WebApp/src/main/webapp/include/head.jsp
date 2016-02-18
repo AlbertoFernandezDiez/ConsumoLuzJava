@@ -16,6 +16,7 @@
 <title><%=Constantes.APP_NAME%></title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 
 </head>
 <body>
